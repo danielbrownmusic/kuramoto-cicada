@@ -39,7 +39,7 @@ Between these values, you can make really interesting polyphonic and heterophoni
 
 Originally the **cicada~** object was used with a Max subpatch that sent constant filtered white noise into it (based on an example from the excellent book [_Designing Sound_](https://books.google.com/books/about/Designing_Sound.html?id=YGymQwAACAAJ) by Andy Farnell), which the object then amplitude-modulated. You can see this in the cicada~.maxhelp file. But you can send any signal you want through the object and thus use it like an LFO. You can also trigger events with it. 
 
-{{<> youtube >}}
+{{< youtube at3zoSr--_k >}}
 
 
 Logo attribute: [Cicada icons created by Icongeek26 - Flaticon](https://www.flaticon.com/free-icons/cicada)

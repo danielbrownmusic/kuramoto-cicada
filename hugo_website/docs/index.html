@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.104.3" />
+    <meta name="description" content="">
+
+
+    <link rel="icon" href="/danielims/kuramoto-cicada/images/favicon.png" type="image/png">
+
+    <title>kuramoto cicada :: Kuramoto Cicada Documentation</title>
+
+    
+    <link href="/danielims/kuramoto-cicada/css/nucleus.css?1666416312" rel="stylesheet">
+    <link href="/danielims/kuramoto-cicada/css/fontawesome-all.min.css?1666416312" rel="stylesheet">
+    <link href="/danielims/kuramoto-cicada/css/hybrid.css?1666416312" rel="stylesheet">
+    <link href="/danielims/kuramoto-cicada/css/featherlight.min.css?1666416312" rel="stylesheet">
+    <link href="/danielims/kuramoto-cicada/css/perfect-scrollbar.min.css?1666416312" rel="stylesheet">
+    <link href="/danielims/kuramoto-cicada/css/auto-complete.css?1666416312" rel="stylesheet">
+    <link href="/danielims/kuramoto-cicada/css/atom-one-dark-reasonable.css?1666416312" rel="stylesheet">
+    <link href="/danielims/kuramoto-cicada/css/theme.css?1666416312" rel="stylesheet">
+    <link href="/danielims/kuramoto-cicada/css/tabs.css?1666416312" rel="stylesheet">
+    <link href="/danielims/kuramoto-cicada/css/hugo-theme.css?1666416312" rel="stylesheet">
+    
+    
+
+    <script src="/danielims/kuramoto-cicada/js/jquery-3.3.1.min.js?1666416312"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/danielims/kuramoto-cicada/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href='/'>
+   <img src="icon.png">
+</a>
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/danielims/kuramoto-cicada/js/lunr.min.js?1666416312"></script>
+<script type="text/javascript" src="/danielims/kuramoto-cicada/js/auto-complete.js?1666416312"></script>
+<script type="text/javascript">
+    
+        var baseurl = "https:\/\/github.com\/danielims\/kuramoto-cicada\/";
+    
+</script>
+<script type="text/javascript" src="/danielims/kuramoto-cicada/js/search.js?1666416312"></script>
+
+    
+  </div>
+  
+    <section id="homelinks">
+      <ul>
+        <li>
+            <a class="padding" href='/'><i class='fas fa-home'></i> Home</a>
+        </li>
+      </ul>
+    </section>
+  
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+        
+    </ul>
+
+    
+    
+
+    
+    <section id="footer">
+      <p>Built with <a href="https://github.com/matcornic/hugo-theme-learn"><i class="fas fa-heart"></i></a> from <a href="https://getgrav.org">Grav</a> and <a href="https://gohugo.io/">Hugo</a></p>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+
+        
+
+<span id="sidebar-toggle-span">
+<a href="#" id="sidebar-toggle" data-sidebar-toggle=""><i class="fas fa-bars"></i> navigation</a>
+</span>
+
+ 
+<h1 id="kuramoto-cicada">kuramoto cicada</h1>
+<p><img src="screenshot.png" alt="screenshot"></p>
+<p>This is a Max/MSP package containing two externals: <strong>cicada~</strong> and <strong>cicada_chorus_control</strong>.</p>
+<p>Copyright © 2022 Daniel Brown<br>
+Contact: <a href="mailto:daniel@intelligentmusicsystems.com">daniel@intelligentmusicsystems.com</a></p>
+<h4 id="installation">Installation</h4>
+<p>Download the <em>kuramoto-cicada</em> folder from <a href="">here</a>. Copy the (entire) folder to your Max Packages folder (it&rsquo;s probably somewhere like <em>Documents/Max [version number]/Packages)</em>.</p>
+<h4 id="about">About</h4>
+<p>The <strong>cicada~</strong> object came from a study on simulating the sound of cicadas chirping, as part of a larger interest I have in computationally modelling natural sounds&ndash;the stochastic rhythms of nature.</p>
+<p>The original paper about it is <a href="https://xenakis2022.uoa.gr/proceedings/">here, </a> in the Proceedings of the 2022 Xenakis Centenary International Symposium (pp. 394-406), along with a bunch of other really interesting papers on stochastic music and Xenakis.</p>
+<p>Cicadas emit &ldquo;chirps&rdquo; by <a href="https://en.wikipedia.org/wiki/Cicada#Song">expanding and retracting their abdomens</a>, which buckles and unbuckles a hard structure on each side of them, producing a loud noise. The most interesting aspect of a cicada&rsquo;s chirping is that, in the presence of other cicadas, it will often very quickly synchronize its chirps with the others&rsquo;. Large groups of cicadas will chirp in near-perfect synchrony, a behavior called &ldquo;chorusing.&rdquo;</p>
+<p>The <strong>cicada~</strong> object models this behavior by implementing the <a href="https://en.wikipedia.org/wiki/Kuramoto_model">Kuramoto model</a> for systems of coupled oscillators, which has been suggested for how cicadas and other insects acheive this chorusing behavior in the absence of a central &ldquo;conductor.&rdquo;</p>
+<p>The <strong>cicada~</strong> object is essentially an LFO with two types of modifications:</p>
+<p>First, it has several stochastic attributes which cicada chirps (and other natural sounds) display, and which you can control in order to layer different degrees of randomness onto your waveforms: amplitude, &ldquo;chirp&rdquo; length (i.e. period), length of time chirping, length of time not chirping, and the influence of neighbor chirps on whether a cicada will start or stop chirping. By modifying these variables, you can get a lot of different flavors of constantly changing sonic textures.</p>
+<p>Second, you can connect <strong>cicada~</strong> objects to one another with patch cords, and then change what&rsquo;s called the <em>Kuramoto coefficient</em> attribute, which governs how likely the cicadas are to synchronize:</p>
+<ul>
+<li>at value 1, connected cicadas will chirp in synchrony;</li>
+<li>at value 0, connected cicadas will ignore each other according to their individual feelings;</li>
+<li>at value -1, connected cicadas will try to alternate their chirps with each other.</li>
+</ul>
+<p>Between these values, you can make really interesting polyphonic and heterophonic behavior emerge.</p>
+<p>Originally the <strong>cicada~</strong> object was used with a Max subpatch that sent constant filtered white noise into it (based on an example from the excellent book <a href="https://books.google.com/books/about/Designing_Sound.html?id=YGymQwAACAAJ"><em>Designing Sound</em></a> by Andy Farnell), which the object then amplitude-modulated. You can see this in the cicada~.maxhelp file. But you can send any signal you want through the object and thus use it like an LFO. You can also trigger events with it.</p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/at3zoSr--_k" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<p>Logo attribute: <a href="https://www.flaticon.com/free-icons/cicada">Cicada icons created by Icongeek26 - Flaticon</a></p>
+	
+  
+        
+        </div>
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+            
+        
+
+        
+
+
+	 
+	 
+		
+		
+	
+    </div>
+
+    </section>
+
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/danielims/kuramoto-cicada/js/clipboard.min.js?1666416312"></script>
+    <script src="/danielims/kuramoto-cicada/js/perfect-scrollbar.min.js?1666416312"></script>
+    <script src="/danielims/kuramoto-cicada/js/perfect-scrollbar.jquery.min.js?1666416312"></script>
+    <script src="/danielims/kuramoto-cicada/js/jquery.sticky.js?1666416312"></script>
+    <script src="/danielims/kuramoto-cicada/js/featherlight.min.js?1666416312"></script>
+    <script src="/danielims/kuramoto-cicada/js/highlight.pack.js?1666416312"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/danielims/kuramoto-cicada/js/modernizr.custom-3.6.0.js?1666416312"></script>
+    <script src="/danielims/kuramoto-cicada/js/learn.js?1666416312"></script>
+    <script src="/danielims/kuramoto-cicada/js/hugo-learn.js?1666416312"></script>
+    
+        
+            <script src="/danielims/kuramoto-cicada/mermaid/mermaid.js?1666416312"></script>
+        
+        <script>
+            mermaid.initialize({ startOnLoad: true });
+        </script>
+    
+    
+
+  </body>
+</html>
+

@@ -1,4 +1,5 @@
-baseURL = 'http://example.org/'
+baseURL = 'https://github.com/danielims/kuramoto-cicada/'
 languageCode = 'en-us'
 title = 'Kuramoto Cicada Documentation'
 theme = "hugo-theme-learn"
+publishDir = "docs"
