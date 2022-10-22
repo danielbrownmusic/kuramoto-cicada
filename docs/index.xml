@@ -2,9 +2,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>kuramoto cicada on Kuramoto Cicada Documentation</title>
-    <link>https://github.com/danielims/kuramoto-cicada/hugo_website/</link>
+    <link>https://github.com/danielims/kuramoto-cicada/docs/</link>
     <description>Recent content in kuramoto cicada on Kuramoto Cicada Documentation</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://github.com/danielims/kuramoto-cicada/hugo_website/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://github.com/danielims/kuramoto-cicada/docs/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
