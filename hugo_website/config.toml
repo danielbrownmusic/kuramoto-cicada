@@ -1,4 +1,4 @@
-baseURL = 'https://github.com/danielims/kuramoto-cicada/'
+baseURL = 'https://github.com/danielims/kuramoto-cicada/hugo_website'
 languageCode = 'en-us'
 title = 'Kuramoto Cicada Documentation'
 theme = "hugo-theme-learn"
