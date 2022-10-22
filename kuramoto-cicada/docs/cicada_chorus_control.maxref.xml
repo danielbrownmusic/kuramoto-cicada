@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name="cicada_chorus_control" module="msp" category="kuramoto_cicada">
+
+	<digest>
+		Sets attributes globally for a group of cicada~ objects.
+	</digest>
+	
+	<description>
+  </description>
+
+  <!--METADATA-->
+  <metadatalist>
+    <metadata name="author">Daniel Brown</metadata>
+    <metadata name="tag">LFO</metadata>
+    <metadata name="tag">stochastic</metadata>
+    <metadata name="tag">Kuramoto</metadata>
+    <metadata name="tag">Xenakis</metadata>
+  </metadatalist>
+
+    <!--ATTRIBUTES-->
+    <attributelist>
+
+        <attribute name='on' get='0' set='1' type='long' size='1' >
+            <digest>Turn all cicadas on or off. </digest>
+            <description>zero: off; non-zero: on. Default is non-zero (on).</description>
+        </attribute>
+        ​
+        <attribute name='chirp_on_start' get='0' set='1' type='long' size='1' >
+            <digest>Set all cicadas' chirp_on_start attribute.</digest>
+        </attribute>
+
+        <attribute name='chirp_on_signal' get='0' set='1' type='long' size='1' >
+            <digest>Set all cicadas' chirp_on_signal attribute.</digest>
+        </attribute>
+
+        <attribute name='amplitude_randomness' get='0' set='1' type='float' size='1' >
+            <digest>Set all cicadas' chirp_on_signal attribute.</digest>
+        </attribute>
+
+        <attribute name='chirp_length_mean' get='0' set='1' type='float' size='1' >
+            <digest>Set all cicadas' chirp_length_mean attribute.</digest>
+        </attribute>
+
+        <attribute name='chirp_length_randomness' get='0' set='1' type='float' size='1' >
+            <digest>Set all cicadas' chirp_length_randomness attribute.</digest>
+        </attribute>
+
+        <attribute name='chirping_time_mean' get='0' set='1' type='float' size='1' >
+            <digest>Set all cicadas' chirping_time_mean attribute.</digest>
+        </attribute>
+
+        <attribute name='nonchirping_time_mean' get='0' set='1' type='float' size='1' >
+            <digest>Set all cicadas' nonchirping_time_mean attribute.</digest>
+        </attribute>
+
+        <attribute name='start_chirping_nbr_sensitivity' get='0' set='1' type='float' size='1' >
+            <digest>Set all cicadas' start_chirping_nbr_sensitivity attribute.</digest>
+        </attribute>​
+
+        <attribute name='stop_chirping_nbr_sensitivity' get='0' set='1' type='float' size='1' >
+            <digest>Set all cicadas' stop_chirping_nbr_sensitivity attribute.</digest>
+        </attribute>​
+
+        <attribute name='coupling_strength' get='0' set='1' type='float' size='1' >
+            <digest>Set all cicadas' coupling_strength attribute.</digest>
+        </attribute>​
+
+    </attributelist>
+
+	<!--MESSAGES-->
+	<methodlist>
+    <method name="int">
+      <digest>
+        Left inlet: on/off. Default is on.
+      </digest>
+      <description>
+        Left inlet: 0 turns off, anything else turns on.
+      </description>
+    </method>
+
+  </methodlist>
+	
+	<!--SEEALSO-->
+	<seealsolist>
+		<seealso name="cicada~"/>
+  </seealsolist>
+	
+</c74object>

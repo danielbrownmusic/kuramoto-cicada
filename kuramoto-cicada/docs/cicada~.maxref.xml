@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name="cicada~" module="msp" category="kuramoto_cicada">
+
+	<digest>
+		Stochastic LFO with Kuramoto-model coupling.
+	</digest>
+	
+	<description>
+    Outputs a sine-squared amplitude envelope with several settable stochastic parameters. 
+    When different instances of this object are "coupled" by connecting their right inlets and outlets,
+    their <at>coupling_strength</at> can be changed, causing their LFOs to synchronize or alternate.
+  </description>
+
+  <!--METADATA-->
+  <metadatalist>
+    <metadata name="author">Daniel Brown</metadata>
+    <metadata name="tag">LFO</metadata>
+    <metadata name="tag">stochastic</metadata>
+    <metadata name="tag">Kuramoto</metadata>
+    <metadata name="tag">Xenakis</metadata>
+  </metadatalist>
+	
+
+		
+    <!--INLETS-->
+    <inletlist>
+        <inlet id="0" type="int signal">
+            <description>
+            Signal: audio (mono) signal to be amplitude modulated.
+            Int: zero turns off, anything else turns on.
+            Message: see messages reference.
+            </description>
+        </inlet>
+        <inlet id="1" type="symbol">
+            <digest>Connect other cicadas to this inlet.</digest>
+            <description>
+              When the right outlet of another cicada is connected to this inlet, this cicada "listens" to the other one. 
+              Change this cicada's <at>coupling_strength</at> attribute to change how the other cicada's behavior affects this one.
+            </description>
+        </inlet>
+    </inletlist>
+
+    <!--OUTLETS-->
+    <outletlist>
+        <outlet id="0" type="signal">
+            <digest>The amplitude-modulated signal.</digest>
+            <description>If there is an input signal, this will output the amplitude-modulated signal. 
+            If no input signal and <at>chirp_on_signal</at> is zero, this will output the amplitude envelope.
+            If no input signal and <at>chirp_on_signal</at> is non-zero, this will not output.
+            </description>
+        </outlet>
+        <outlet id="1" type="bang">
+            <digest>bang when amplitude envelope is zero</digest>
+        </outlet>
+        <outlet id="2" type="float">
+            <digest>peak value of amplitude envelope when this value is hit</digest>
+        </outlet>
+        <outlet id="3" type="list">
+            <digest>Connect to right inlet of another cicada to make that cicada "listen" to this one.</digest>
+        </outlet>
+    </outletlist>
+
+
+    <!--ATTRIBUTES-->
+    <attributelist>
+​
+        <attribute name='chirp_on_start' get='0' set='1' type='long' size='1' >
+            <digest>zero: don't necessarily chirp when started; non-zero: chirp when started.</digest>
+            <description>zero: stochastically decide to chirp according to <at>chirping_time_mean</at> and <at>nonchirping_time_mean</at> values. Default is non-zero (on).</description>
+        </attribute>
+​
+        <attribute name='chirping' get='0' set='1' type='long' size='1' >
+            <digest>Manually start or stop chirping.</digest>
+            <description>zero: silences cicada; non-zero: starts cicada chirping. Default is non-zero (on). </description>
+        </attribute>
+​
+        <attribute name='chirp_on_signal' get='0' set='1' type='long' size='1' >
+            <digest>Output based on presence of input signal</digest>
+            <description>zero: send output without input signal; non-zero: send output only when a signal is coming in inlet. Default is zero (off).</description>
+        </attribute>
+
+        <attribute name='amplitude_randomness' get='0' set='1' type='float' size='1' >
+            <digest>Range: 0 to 1</digest>
+            <description>At 0 all chirps will have peak value 1.0. Increase to randomize peak values. Follows a normal (Gaussian) distribution. Default is zero.</description>
+        </attribute>
+
+        <attribute name='chirp_length_mean' get='0' set='1' type='float' size='1' >
+            <digest>In milliseconds. Follows a normal (Gaussian) distribution. Default is 300 ms.</digest>
+        </attribute>
+
+        <attribute name='chirp_length_randomness' get='0' set='1' type='float' size='1' >
+            <digest>Range: 0 to 1</digest>
+            <description>At 0 all chirps will have length equal to <at>chirp_length_mean</at>. Increase to randomize chirp lengths. Follows a normal (Gaussian) distribution. Default is zero.</description>
+        </attribute>
+
+        <attribute name='chirping_time_mean' get='0' set='1' type='float' size='1' >
+            <digest>In seconds.</digest>
+            <description>The average amount of time in seconds the cicada will chirp without stopping. Follows a geometric distribution. Default is one second.</description>
+        </attribute>
+
+        <attribute name='nonchirping_time_mean' get='0' set='1' type='float' size='1' >
+            <digest>In seconds.</digest>
+            <description>The average amount of time of unbroken silence between periods of chirping. Follows a geometric distribution. Default is zero seconds.</description>
+        </attribute>
+
+        <attribute name='start_chirping_nbr_sensitivity' get='0' set='1' type='float' size='1' >
+            <digest>Likelihood of starting chirping</digest>
+            <description>If a cicada is connected to other cicadas via its left inlet and currently not chirping, higher values of this will increase its likelihood to start chirping if the other cicadas are chirping. Default is zero.</description>
+        </attribute>​
+
+        <attribute name='stop_chirping_nbr_sensitivity' get='0' set='1' type='float' size='1' >
+            <digest>Likelihood of stopping chirping</digest>
+            <description>If a cicada is connected to other cicadas via its left inlet and currently not chirping, higher values of this will increase its likelihood to stop chirping if the other cicadas are chirping. Default is zero.</description>
+        </attribute>​
+
+        <attribute name='coupling_strength' get='0' set='1' type='float' size='1' >
+            <digest>Range: -1 to 1. Default is zero.</digest>
+            <description>The Kuramoto coefficient. If a cicada is connected to one or more other cicadas, the following values will produce this behavior:
+            1: will synchronize chirps with the other cicada(s);
+            0: will not synchronize at all with the other cicada(s)
+            -1: will alternate its chirps with the other cicada(s). With more than two coupled cicadas, this will be complicated.
+            At other values between these three main values, combinations of synchrony and randomness will occur.</description>
+        </attribute>​
+
+    </attributelist>
+
+	<!--MESSAGES-->
+	<methodlist>
+    <method name="int">
+      <digest>
+        Left inlet: on/off. Default is on.
+      </digest>
+      <description>
+        Left inlet: 0 turns off, anything else turns on.
+      </description>
+    </method>
+
+    <method name="signal">
+      <digest>
+        Left inlet: The signal that the cicada's "chirp" will modulate the amplitude of.
+      </digest>
+    </method>
+
+  </methodlist>
+	
+	<!--OUTLETS-->
+	<!-- <misc name="Outlet 1">
+			<digest>(signal) The LFO signal. </digest>
+            <description>If a signal is coming in the left inlet, the output will be this signal amplitude-modulated. 
+            If no signal is coming in and <at>chirp_on_signal</at> is zero, the output will be just the LFO amplitude envelope.</description>
+	</misc>
+	<misc name="Outlet 2">
+			<digest>(bang) Outputs a bang when signal hits zero.</digest>
+	</misc>
+	<misc name="Outlet 3">
+			<digest>(float) Outputs the peak amplitude value when the signal hits this value.</digest>
+	</misc>
+	<misc name="Outlet 4">
+			<digest>(list) Outputs the object id and current phase of its signal.</digest>
+			<description>Connect this outlet to other cicada~ objects' left inlets to make them "listen" and synchronize to this cicada.</description>
+	</misc> -->
+
+
+	<!--SEEALSO-->
+	<seealsolist>
+		<seealso name="cicada_chorus_control"/>
+  </seealsolist>
+	
+</c74object>
