@@ -4,7 +4,7 @@ title: kuramoto cicada
 
 # kuramoto cicada
 
-![screenshot](screenshot.png)
+![screenshot](images/screenshot.png)
 
 
 This is a Max/MSP package containing two externals: **cicada~** and **cicada_chorus_control**.

@@ -6,5 +6,9 @@ publishDir = "../docs"
 
 [params]
 landingPageURL='https://danielims.github.io/kuramoto-cicada/'
-isMultiLingual=true
-iconImage = 'icon.png' 
+disableLandingPageButton = true
+
+[Languages]
+[Languages.en]
+landingPageURL = "/kuramoto-cicada"
+landingPageName = "<i class='fas fa-home'></i> Redirect to Home"
