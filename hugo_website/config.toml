@@ -3,3 +3,7 @@ languageCode = 'en-us'
 title = 'Kuramoto Cicada Documentation'
 theme = "hugo-theme-learn"
 publishDir = "../docs"
+
+[params]
+landingPageURL='https://danielims.github.io/pymaxmusic/'
+isMultiLingual=true
