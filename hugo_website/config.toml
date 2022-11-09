@@ -7,3 +7,4 @@ publishDir = "../docs"
 [params]
 landingPageURL='https://danielims.github.io/kuramoto-cicada/'
 isMultiLingual=true
+iconImage = 'icon.png' 
