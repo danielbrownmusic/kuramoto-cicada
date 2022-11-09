@@ -1,0 +1,13 @@
+<section class="col-6 col-12-narrower">
+    <div class="box post">
+        <a class="image left"><img src="{{ index .Params 0 }}" /></a>
+        <div class="inner">
+            <h3><a>{{ index .Params 1 }}</a></h3>
+            <p>
+                <audio class="player" controls preload="none">
+                    <source src="{{ index .Params 2 }}" type="audio/mp3">
+                </audio>
+            </p>
+        </div>
+    </div>
+</section>
