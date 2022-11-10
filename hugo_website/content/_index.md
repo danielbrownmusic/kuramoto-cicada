@@ -13,7 +13,7 @@ Copyright &copy; 2022 by [Daniel Brown](https://danielims.github.io/daniel_brown
 
 #### Installation
 
-[Download the _kuramoto-cicada_ folder from here](https://github.com/danielims/kuramoto-cicada). Copy the (entire) folder to your Max Packages folder (probably _Documents/Max [version number]/Packages)_.
+[Download the _kuramoto-cicada-maxpackage_ folder from here](https://github.com/danielims/kuramoto-cicada), and put it in your Max Packages folder (probably _Documents/Max [version number]/Packages)_.
 
 #### About
 
