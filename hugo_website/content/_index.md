@@ -9,7 +9,7 @@ title: kuramoto cicada
 
 This is a Max/MSP package containing two externals: **cicada~** and **cicada_chorus_control**.
 
-Copyright &copy; 2022 by [Daniel Brown](https://danielims.github.io/daniel_brown/)  
+Author: [Daniel Brown](https://danielbrownmusic.github.io/)  
 
 #### Installation
 
