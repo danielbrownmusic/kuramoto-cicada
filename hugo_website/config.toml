@@ -1,11 +1,11 @@
-baseURL = 'https://danielims.github.io/kuramoto-cicada/'
+baseURL = 'https://danielbrownmusic.github.io/kuramoto-cicada/'
 languageCode = 'en-us'
 title = 'Kuramoto Cicada Documentation'
 theme = "hugo-theme-learn"
 publishDir = "../docs"
 
 [params]
-landingPageURL='https://danielims.github.io/kuramoto-cicada/'
+landingPageURL='https://danielbrownmusic.github.io/kuramoto-cicada/'
 disableLandingPageButton = true
 
 [Languages]
