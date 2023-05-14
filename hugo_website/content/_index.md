@@ -13,7 +13,7 @@ Author: [Daniel Brown](https://danielbrownmusic.github.io/)
 
 #### Installation
 
-[Download the _kuramoto-cicada-maxpackage_ folder from here](https://github.com/danielbrownmusic/kuramoto-cicada/releases/tag/v1.2), and put it in your Max Packages folder (probably _Documents/Max [version number]/Packages)_.
+[Download the _kuramoto-cicada-maxpackage_ folder from here](https://github.com/danielbrownmusic/kuramoto-cicada/releases/tag/v1.3), and put it in your Max Packages folder (probably _Documents/Max [version number]/Packages)_.
 
 #### About
 
